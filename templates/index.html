@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fb;
+            color: #333;
+        }
+        
+        /* Navbar styles */
+        .navbar {
+            background-color: #333;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .logout {
+    color: white;
+    font-family: sans-serif;
+    text-decoration: none;
+    margin: 0 30px;
+    border: 2px solid wheat;
+    padding: 10px 20px;
+    transition: 0.1s;
+    border-radius: 5px;
+}
+
+.logout:hover {
+    background-color: #ffffff2c;
+}
+        .navbar-brand {
+            font-size: 20px;
+            font-weight: 600;
+        }
+        
+        .logout-btn {
+            color: white;
+            background-color: #e74c3c;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .logout-btn:hover {
+            background-color: #c0392b;
+        }
+        
+        /* Main content */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+        }
+        
+        .btn-primary {
+            display: inline-block;
+            background-color: #28a745;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary:hover {
+            background-color: #28a74688;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-brand">Traffic Management System</div>
+        <a href="/logout" class="logout">Logout</a>
+    </nav>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Welcome, {{ username }}!</h1>
+        <a href="/view_reports" class="btn-primary">View Traffic Reports</a>
+    </div>
+</body>
+</html>

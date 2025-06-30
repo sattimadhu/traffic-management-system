@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <h1>Admin Dashboard</h1>
+        <div class="admin-info">
+            Welcome, Admin {{ username }}! 
+            <a href="/logout" class="logout">Logout</a>
+        </div>
+    </div>
+    
+    <div class="container">
+        <!-- Main Content -->
+        <div class="main-content">
+            <h1>Welcome, Admin {{ username }}!</h1>
+            
+            <div class="card">
+                <!-- Your dashboard content will go here -->
+                <p>System overview and quick actions can be placed here</p>
+                
+                <div style="margin-top: 20px;">
+                    <a href="/manage_signals" class="btn">Manage Signals</a>
+                    <a href="/report_incidents" class="btn">Report Incident</a>
+                    <a href="/view_reports" class="btn">View Reports</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

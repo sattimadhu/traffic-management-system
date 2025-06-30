@@ -1,0 +1,20 @@
+<!-- templates/statistics.html -->
+{% extends 'base.html' %}
+
+{% block title %}Statistics{% endblock %}
+
+{% block content %}
+<h2>Incident Statistics</h2>
+<table border="1">
+    <tr>
+        <th>Location</th>
+        <th>Number of Incidents</th>
+    </tr>
+    {% for row in data %}
+    <tr>
+        <td>{{ row.location }}</td>
+        <td>{{ row.count }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

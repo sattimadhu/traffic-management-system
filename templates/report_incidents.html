@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Report Incidents</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='report_incidents.css') }}">
+</head>
+<body>
+    <div class="container">
+        <a href="/dashboard" class="goback">Go Back</a>
+        
+        <h2>Report a New Traffic Incident</h2>
+
+        <div class="form-container">
+            <form method="POST">
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" id="location" name="location" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="incident_type">Incident Type</label>
+                    <select id="incident_type" name="incident_type" required>
+                        <option value="Accident">Accident</option>
+                        <option value="Signal Failure">Signal Failure</option>
+                        <option value="Road Block">Road Block</option>
+                        <option value="Heavy Traffic">Heavy Traffic</option>
+                    </select>
+                </div>
+
+                <div class="form-group" style="flex: 1 0 100%;">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" rows="4"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Report Incident">
+                </div>
+            </form>
+        </div>
+
+        <h2>Reported Incidents</h2>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Location</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th>Timestamp</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for incident in incidents %}
+                    <tr>
+                        <td>{{ incident.id }}</td>
+                        <td>{{ incident.location }}</td>
+                        <td>{{ incident.incident_type }}</td>
+                        <td class="desc">{{ incident.description }}</td>
+                        <td>{{ incident.timestamp }}</td>
+                        <td class="action-buttons">
+                            <a href="/delete_incident/{{ incident.id }}" class="btn btn-delete">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

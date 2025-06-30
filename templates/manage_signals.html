@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Traffic Signals</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='manage_signals.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div style="display: flex; justify-content: space-around;"><a href="/dashboard" class="goback">Go back</a>
+        <h2>Manage Traffic Signals</h2></div>
+        <div class="form-container">
+            <form method="POST">
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" id="location" name="location" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <select id="status" name="status" required>
+                        <option value="Working">Working</option>
+                        <option value="Not Working">Not Working</option>
+                        <option value="Under Maintenance">Under Maintenance</option>
+                    </select>
+                </div>
+                
+                <input type="submit" value="Add Signal">
+            </form>
+        </div>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Location</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for signal in signals %}
+                    <tr>
+                        <td>{{ signal.id }}</td>
+                        <td>{{ signal.location }}</td>
+                        <td class="status-{{ signal.status | lower | replace(' ', '-') }}">{{ signal.status }}</td>
+                        <td><a class="delete-btn" href="/delete_signal/{{ signal.id }}">Delete</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

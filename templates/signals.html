@@ -1,0 +1,22 @@
+<!-- templates/signals.html -->
+{% extends 'base.html' %}
+
+{% block title %}Traffic Signals{% endblock %}
+
+{% block content %}
+<h2>Traffic Signals</h2>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Location</th>
+        <th>Status</th>
+    </tr>
+    {% for signal in signals %}
+    <tr>
+        <td>{{ signal.id }}</td>
+        <td>{{ signal.location }}</td>
+        <td>{{ signal.status }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
